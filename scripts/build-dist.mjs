@@ -7,7 +7,7 @@ const dist = join(root, 'dist');
 const FFMPEG = process.env.FFMPEG || 'C:\\Users\\kevin\\.cache\\ffmpeg-tool\\node_modules\\ffmpeg-static\\ffmpeg.exe';
 
 const SKIP_IMAGES = new Set(['gundam-1.png', 'gundan-3.jpg', 'gundam-2-2.jpeg']);
-const VIDEO_KBPS = { 'hero-bg.mp4': 1200, 'wallpaper.mp4': 900 };
+const VIDEO_KBPS = { 'hero-bg.mp4': { kbps: 2600, crf: 23 }, 'wallpaper.mp4': { kbps: 2000, crf: 23 } };
 
 const bytes = (n) => (n / 1048576).toFixed(2) + ' MB';
 const size = (p) => statSync(p).size;
@@ -46,11 +46,11 @@ for (const p of [...new Set(targets)]) {
 
 const out = (rel) => join(dist, rel);
 const run = (args) => execFileSync(FFMPEG, args, { stdio: ['ignore', 'ignore', 'pipe'] });
-const videoArgs = (src, dst, kbps, w) => [
+const videoArgs = (src, dst, opt, w) => [
   '-hide_banner', '-loglevel', 'error', '-y', '-i', src,
-  '-vf', `scale='min(${w},iw)':-2`, '-an',
-  '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '30',
-  '-max_rate', String(kbps * 1000), '-bufsize', String(kbps * 2000),
+  '-vf', `scale='min(${w},iw)':-2,fps=30`, '-an',
+  '-c:v', 'libx264', '-preset', 'veryfast', '-crf', String(opt.crf),
+  '-maxrate', `${opt.kbps}k`, '-bufsize', `${opt.kbps * 2}k`,
   '-movflags', '+faststart', dst,
 ];
 
@@ -65,9 +65,9 @@ const walkImg = (dir) => {
     const dst = out(rel);
     mkdirSync(join(dst, '..'), { recursive: true });
     const mb = size(p) / 1048576;
-    if (/\.mp4$/i.test(name)) run(videoArgs(p, dst, VIDEO_KBPS[name] ?? 900, 1280));
+    if (/\.mp4$/i.test(name)) run(videoArgs(p, dst, VIDEO_KBPS[name] ?? { kbps: 1200, crf: 24 }, 1280));
     else if (/\.jpe?g$/i.test(name) && mb > 0.5) {
-      run(['-hide_banner', '-loglevel', 'error', '-y', '-i', p, '-vf', "scale='min(1600,iw)':-2", '-qmin', '1', '-qmax', '40', '-q:v', '5', dst]);
+      run(['-hide_banner', '-loglevel', 'error', '-y', '-i', p, '-vf', "scale='min(1600,iw)':-2", '-q:v', '5', dst]);
     } else if (/\.png$/i.test(name) && mb > 0.9) {
       run(['-hide_banner', '-loglevel', 'error', '-y', '-i', p, '-vf', "scale='min(1200,iw)':-2", dst]);
     } else cpSync(p, dst);
