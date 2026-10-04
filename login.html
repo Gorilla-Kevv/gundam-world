@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login - GundamWorld</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>GundamWorld</h1>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品目录</a>
+                <a href="news.html">资讯中心</a>
+                <a href="login.html" class="active">登录</a>
+                <a href="register.html" class="register-btn">注册</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-box">
+            <h2>登录账户</h2>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="用户名" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="密码" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" name="remember"> 记住我
+                    </label>
+                    <a href="#" class="forgot-password">忘记密码？</a>
+                </div>
+                <button type="submit" class="auth-button">登录</button>
+                <p class="auth-redirect">
+                    还没有账户？ <a href="register.html">立即注册</a>
+                </p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>关于我们</h3>
+                <p>专业的高达模型咨询平台</p>
+            </div>
+            <div class="footer-section">
+                <h3>快速链接</h3>
+                <a href="products.html">产品目录</a>
+                <a href="news.html">新闻资讯</a>
+                <a href="register.html">加入我们</a>
+            </div>
+            <div class="footer-section">
+                <h3>联系我们</h3>
+                <p>邮箱：contact@gundamworld.com</p>
+                <p>电话：400-123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GundamWorld. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

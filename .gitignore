@@ -1,0 +1,4 @@
+dist/
+dist.prev-*/
+node_modules/
+*.qoder.site

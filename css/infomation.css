@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo a h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover h1 {
+    color: #ff0000;
+}
+
+/* 导航栏 */
+.navbar {
+    background: linear-gradient(to right, #0800e8, #333);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(66, 87, 109, 0.2);
+}
+
+.logo h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links a:hover {
+    color: #fffb00;
+}
+
+.register-btn {
+
+    background: #fff53c;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    color: black !important;
+}
+
+.register-btn:hover {
+    background: #5f5e3f;
+    color: #ffffff !important;
+}
+
+/* 页脚样式 */
+footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: #ff4d4d;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+/* information页 */
+.news-detail-page {
+    background: #f6f8fa;
+    min-height: 100vh;
+    padding-top: 100px;
+    background: url('../images/bg_hobby.jpg') no-repeat center center fixed;
+    background-size: 100%;
+    background-position-y: -100px;
+}
+
+.news-detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 2rem 2rem 1.5rem 2rem;
+}
+
+.news-detail-header {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.news-category {
+    display: inline-block;
+    background: #00c8ff;
+    color: #fff;
+    font-size: 0.95rem;
+    padding: 0.2rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.news-title {
+    font-size: 2rem;
+    color: #222;
+    margin: 0.5rem 0 0.7rem 0;
+}
+
+.news-meta {
+    color: #888;
+    font-size: 0.98rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.news-detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.news-detail-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 3px solid #00c8ff;
+}
+
+.news-detail-content h2 {
+    color: #00c8ff;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-detail-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.news-detail-gallery {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.news-detail-gallery img {
+    width: 48%;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #00c8ff;
+
+}
+
+.news-detail-footer {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.back-news {
+    color: #00c8ff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.back-news:hover {
+    color: #005fa3;
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .news-detail-container {
+        padding: 1rem 0.5rem;
+    }
+
+    .news-detail-gallery {
+        flex-direction: column;
+    }
+
+    .news-detail-gallery img {
+        width: 100%;
+    }
+}

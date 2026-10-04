@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #05486a;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Noto Sans JP', 'Microsoft YaHei', Arial, sans-serif;
+}
+.logo a {
+    text-decoration: none;
+}
+
+.logo a h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover h1 {
+    color: #ff0000;
+}
+/* 导航栏 */
+.navbar {
+    background: linear-gradient(to right, #0800e8, #333);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left:0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(66, 87, 109, 0.2);
+}
+
+.logo h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links a:hover {
+    color: #fffb00;
+}
+
+.register-btn {
+    
+    background: #fff53c;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    color: black !important;
+}
+
+.register-btn:hover {
+    background: #5f5e3f;
+    color: #ffffff !important;
+}
+
+
+
+/* 内容 */
+.info-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 200px;
+}
+.center-card {
+    max-width: 900px;
+    margin: 60px auto 40px auto;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 4px 36px 36px 36px;
+    opacity: 0.85;
+    }
+
+.center-card h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 32px;
+    letter-spacing: 2px;
+}
+
+.center-card .notice {
+    color: #e53935;
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    display: block;
+}
+
+.center-card p {
+    font-size: 1.08rem;
+    color: #222;
+    margin-bottom: 18px;
+    line-height: 1.8;
+}
+
+.center-card ul {
+    margin: 0 0 18px 0;
+    padding-left: 1.5em;
+    color: #222;
+    font-size: 1.08rem;
+}
+
+.center-card ul li {
+    margin-bottom: 6px;
+    list-style: none;
+    position: relative;
+}
+
+.center-card ul li::before {
+    content: "■";
+    color: #05486a;
+    margin-right: 8px;
+    font-size: 1em;
+    position: relative;
+    top: -1px;
+}
+
+@media (max-width: 700px) {
+    .center-card {
+        padding: 18px 6vw 18px 6vw;
+    }
+
+    .center-card h1 {
+        font-size: 1.5rem;
+    }
+}
+#backToTop {
+    position: fixed;
+    right: 32px;
+    bottom: 40px;
+    width: 48px;
+    height: 48px;
+    background: #00c8ff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    transition: background 0.2s;
+}
+#backToTop:hover {
+    background: #0078c8;
+}

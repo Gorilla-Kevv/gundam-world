@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product - GundamWorld</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>GundamWorld</h1>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="products.html" class="active">产品目录</a>
+                <a href="news.html">资讯中心</a>
+                <a href="login.html">登录</a>
+                <a href="register.html" class="register-btn">注册</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="products-page">
+        <div class="filter-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="搜索高达模型...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filters">
+                <select id="seriesFilter">
+                    <option value="">所有系列</option>
+                    <option value="UC">UC系列</option>
+                    <option value="SEED">SEED系列</option>
+                    <option value="00">00系列</option>
+                    <option value="IBO">铁血孤儿系列</option>
+                </select>
+                <select id="gradeFilter">
+                    <option value="">所有等级</option>
+                    <option value="HG">HG(High Grade)</option>
+                    <option value="RG">RG(Real Grade)</option>
+                    <option value="MG">MG(Master Grade)</option>
+                    <option value="PG">PG(Perfect Grade)</option>
+                    <option value="MR">MR(Metal Robot)</option>
+                    <option value="MB">MB(METAL BUILD)</option>
+                </select>
+                <select id="priceFilter">
+                   <option value="">价格范围</option>
+                    <option value="2000-5000">2000-5000</option>
+                    <option value="5000-10000">5000-10000</option>
+                    <option value="10000+">10000以上</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-series="UC" data-grade="RG">
+                <img src="images/gundam-1-2.jpg" alt="RX-78-2">
+                <div class="product-info">
+                    <h3>RX-78-2 高达</h3>
+                    <p class="grade">RG 1/144</p>
+                    <p class="price">3,850日元</p>
+                    <div class="product-tags">
+                        <span class="tag">UC系列</span>
+                        <span class="tag">初代</span>
+                    </div>
+                    <a href="detail.html?id=1" class="details-btn">查看详情</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-series="UC" data-grade="MG">
+                <img src="images/gundam-2-2.jpg" alt="独角兽高达">
+                <div class="product-info">
+                    <h3>独角兽高达</h3>
+                    <p class="grade">MG 1/100</p>
+                    <p class="price">
+                        4,180日元</p>
+                    <div class="product-tags">
+                        <span class="tag">UC系列</span>
+                        <span class="tag">独角兽</span>
+                    </div>
+                    <a href="detail.html?id=2" class="details-btn">查看详情</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-series="SEED" data-grade="HG">
+                <img src="images/gundam-3.jpg" alt="自由高达">
+                <div class="product-info">
+                    <h3>非凡强袭自由高达</h3>
+                    <p class="grade">HG 1/60</p>
+                    <p class="price">2,970日元</p>
+                    <div class="product-tags">
+                        <span class="tag">SEED系列</span>
+                        <span class="tag">自由</span>
+                    </div>
+                    <a href="detail.html?id=3" class="details-btn">查看详情</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-series="UC" data-grade="RG">
+                <img src="images/gundam-4.jpg" alt="RG 1/144 ν高达">
+                <div class="product-info">
+                    <h3>ν高达</h3>
+                    <p class="grade">RG 1/144</p>
+                    <p class="price">4,200日元</p>
+                    <div class="product-tags">
+                        <span class="tag">UC系列</span>
+                        <span class="tag">ν高达</span>
+                    </div>
+                    <a href="detail.html?id=4" class="details-btn">查看详情</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-series="00" data-grade="MB">
+                <img src="images/gundam-5.jpg" alt="能天使高达">
+                <div class="product-info">
+                    <h3>能天使高达</h3>
+                    <p class="grade">MB 1/100</p>
+                    <p class="price">30,000日元</p>
+                    <div class="product-tags">
+                        <span class="tag">00系列</span>
+                        <span class="tag">能天使</span>
+                    </div>
+                    <a href="detail.html?id=5" class="details-btn">查看详情</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-series="SEED" data-grade="MR">
+                <img src="images/gundam-6.jpg" alt="巴巴托斯高达">
+                <div class="product-info">
+                    <h3>飞升自由高达</h3>
+                    <p class="grade">MR 1/144</p>
+                    <p class="price">19,800日元</p>
+                    <div class="product-tags">
+                        <span class="tag">SEED系列</span>
+                        <span class="tag">飞升自由</span>
+                    </div>
+                    <a href="detail.html?id=6" class="details-btn">查看详情</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-series="UC" data-grade="MG">
+                <img src="images/gundam-7.jpg" alt="沙扎比高达">
+                <div class="product-info">
+                    <h3>沙扎比高达</h3>
+                    <p class="grade">MG 1/100</p>
+                    <p class="price">9,720日元</p>
+                    <div class="product-tags">
+                        <span class="tag">UC系列</span>
+                        <span class="tag">沙扎比 Ver.Ka</span>
+                    </div>
+                    <a href="detail.html?id=7" class="details-btn">查看详情</a>
+                </div>
+            </div>
+            <div class="product-card" data-series="IBO" data-grade="MG">
+                <img src="images/bbts.jpeg" alt="巴巴托斯鲁普斯高达">
+                <div class="product-info">
+                    <h3>巴巴托高达</h3>
+                    <p class="grade">MG 1/100</p>
+                    <p class="price">4,500日元</p>
+                    <div class="product-tags">
+                        <span class="tag">铁血孤儿系列</span>
+                        <span class="tag">巴巴托斯</span>
+                    </div>
+                    <a href="detail.html?id=8" class="details-btn">查看详情</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分页导航 -->
+        <div class="pagination-wrapper">
+            <div class="pagination">
+                <button class="page-btn prev" disabled><i class="fas fa-chevron-left"></i></button>
+                <div class="page-numbers">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                </div>
+                <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>关于我们</h3>
+                <p>专业的高达模型咨询平台</p>
+            </div>
+            <div class="footer-section">
+                <h3>快速链接</h3>
+                <a href="products.html">产品目录</a>
+                <a href="news.html">新闻资讯</a>
+                <a href="register.html">加入我们</a>
+            </div>
+            <div class="footer-section">
+                <h3>联系我们</h3>
+                <p>邮箱：contact@gundamworld.com</p>
+                <p>电话：400-123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GundamWorld. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+
+</html>
