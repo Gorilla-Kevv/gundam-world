@@ -75,6 +75,13 @@ const walkImg = (dir) => {
 };
 walkImg(join(root, 'images'));
 
+if (existsSync(join(root, 'content'))) {
+  mkdirSync(join(dist, 'content'), { recursive: true });
+  for (const name of readdirSync(join(root, 'content'))) {
+    if (name.endsWith('.json')) cpSync(join(root, 'content', name), join(dist, 'content', name));
+  }
+}
+
 let total = 0;
 const scan = (dir) => {
   for (const name of readdirSync(dir)) {

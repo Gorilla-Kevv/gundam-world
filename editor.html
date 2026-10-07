@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容投稿 - GundamWorld</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/studio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>GundamWorld</h1>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品目录</a>
+                <a href="news.html">资讯中心</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="studio">
+        <section class="studio-head">
+            <h2>扩充高达数据库</h2>
+            <p id="identity">正在检查登录状态…</p>
+        </section>
+
+        <section class="studio-panel" id="editor-panel" hidden>
+            <div class="studio-row">
+                <label for="kind">内容类型</label>
+                <select id="kind">
+                    <option value="product">产品 / 模型条目</option>
+                    <option value="series">系列作品条目</option>
+                </select>
+                <label for="op">操作</label>
+                <select id="op">
+                    <option value="create">新增条目</option>
+                    <option value="update">修改已有条目</option>
+                </select>
+            </div>
+            <p class="studio-hint">投稿会先进入待审队列，由站内 AI 初审、管理员终审，批准后才出现在公开页面。</p>
+            <form id="entry-form" class="studio-form"></form>
+            <div class="studio-actions">
+                <button type="button" id="submit-btn" class="cta-button">提交审核</button>
+                <span id="form-status" role="status" aria-live="polite"></span>
+            </div>
+        </section>
+
+        <section class="studio-panel" id="login-panel" hidden>
+            <h3>需要登录</h3>
+            <p>编辑与投稿需要 Qoder 账号验证身份，便于追溯每条内容的来源。</p>
+            <a class="cta-button" id="login-link" href="#">用 Qoder 账号登录</a>
+        </section>
+
+        <section class="studio-panel">
+            <h3>我的投稿</h3>
+            <ul id="my-submissions" class="submission-list"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GundamWorld. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/editor.js"></script>
+</body>
+
+</html>

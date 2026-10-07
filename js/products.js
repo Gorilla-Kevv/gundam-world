@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
 
     // 获取所有产品卡片
-    const productCards = document.querySelectorAll('.product-card');
+    let productCards = document.querySelectorAll('.product-card');
+    document.addEventListener('gw:catalog', () => {
+        productCards = document.querySelectorAll('.product-card');
+    });
 
     // 筛选函数
     function filterProducts() {

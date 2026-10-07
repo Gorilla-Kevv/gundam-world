@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容审核台 - GundamWorld</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/studio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>GundamWorld</h1>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品目录</a>
+                <a href="editor.html">投稿</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="studio">
+        <section class="studio-head">
+            <h2>内容审核台</h2>
+            <p id="identity">正在检查权限…</p>
+        </section>
+
+        <section class="studio-panel" id="denied" hidden>
+            <h3>没有访问权限</h3>
+            <p id="denied-why">该页面只对站点管理员开放。</p>
+            <a class="cta-button" href="#" id="login-link">用 Qoder 账号登录</a>
+        </section>
+
+        <section class="studio-panel" id="queue-panel" hidden>
+            <div class="studio-row">
+                <label for="status">队列</label>
+                <select id="status">
+                    <option value="pending">待审投稿</option>
+                    <option value="approved">已通过</option>
+                    <option value="rejected">已驳回</option>
+                </select>
+                <button type="button" id="refresh">刷新</button>
+            </div>
+            <div id="queue"></div>
+        </section>
+
+        <section class="studio-panel" id="tools-panel" hidden>
+            <h3>数据维护</h3>
+            <div class="studio-tools">
+                <button type="button" id="seed-btn">导入仓库种子数据</button>
+                <button type="button" id="snapshot-btn">导出已批准内容</button>
+                <span id="tool-status" role="status" aria-live="polite"></span>
+            </div>
+            <p class="studio-hint">种子数据来自仓库 <code>content/seed.json</code>；导出文件用于把已批准内容回写进仓库 <code>content/approved.json</code>。</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GundamWorld. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

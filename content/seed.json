@@ -1,0 +1,263 @@
+{
+  "generated_from": "products.html + index.html",
+  "product": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "code": "P-001",
+      "name": "RX-78-2 高达",
+      "series": "UC",
+      "grade": "RG",
+      "scale": "1/144",
+      "price_text": "3,850日元",
+      "price_value": 3850,
+      "release_date": "",
+      "image": "images/gundam-1-2.jpg",
+      "page_path": "detail.html?id=1",
+      "gallery": [
+        "images/gundam-1-2.jpg"
+      ],
+      "features": [
+        "UC系列",
+        "初代"
+      ],
+      "detail": ""
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "code": "P-002",
+      "name": "独角兽高达",
+      "series": "UC",
+      "grade": "MG",
+      "scale": "1/100",
+      "price_text": "4,180日元",
+      "price_value": 4180,
+      "release_date": "",
+      "image": "images/gundam-2-2.jpg",
+      "page_path": "detail.html?id=2",
+      "gallery": [
+        "images/gundam-2-2.jpg"
+      ],
+      "features": [
+        "UC系列",
+        "独角兽"
+      ],
+      "detail": ""
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "code": "P-003",
+      "name": "非凡强袭自由高达",
+      "series": "SEED",
+      "grade": "HG",
+      "scale": "1/60",
+      "price_text": "2,970日元",
+      "price_value": 2970,
+      "release_date": "",
+      "image": "images/gundam-3.jpg",
+      "page_path": "detail.html?id=3",
+      "gallery": [
+        "images/gundam-3.jpg"
+      ],
+      "features": [
+        "SEED系列",
+        "自由"
+      ],
+      "detail": ""
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000004",
+      "code": "P-004",
+      "name": "ν高达",
+      "series": "UC",
+      "grade": "RG",
+      "scale": "1/144",
+      "price_text": "4,200日元",
+      "price_value": 4200,
+      "release_date": "",
+      "image": "images/gundam-4.jpg",
+      "page_path": "detail.html?id=4",
+      "gallery": [
+        "images/gundam-4.jpg"
+      ],
+      "features": [
+        "UC系列",
+        "ν高达"
+      ],
+      "detail": ""
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000005",
+      "code": "P-005",
+      "name": "能天使高达",
+      "series": "00",
+      "grade": "MB",
+      "scale": "1/100",
+      "price_text": "30,000日元",
+      "price_value": 30000,
+      "release_date": "",
+      "image": "images/gundam-5.jpg",
+      "page_path": "detail.html?id=5",
+      "gallery": [
+        "images/gundam-5.jpg"
+      ],
+      "features": [
+        "00系列",
+        "能天使"
+      ],
+      "detail": ""
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000006",
+      "code": "P-006",
+      "name": "飞升自由高达",
+      "series": "SEED",
+      "grade": "MR",
+      "scale": "1/144",
+      "price_text": "19,800日元",
+      "price_value": 19800,
+      "release_date": "",
+      "image": "images/gundam-6.jpg",
+      "page_path": "detail.html?id=6",
+      "gallery": [
+        "images/gundam-6.jpg"
+      ],
+      "features": [
+        "SEED系列",
+        "飞升自由"
+      ],
+      "detail": ""
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000007",
+      "code": "P-007",
+      "name": "沙扎比高达",
+      "series": "UC",
+      "grade": "MG",
+      "scale": "1/100",
+      "price_text": "9,720日元",
+      "price_value": 9720,
+      "release_date": "",
+      "image": "images/gundam-7.jpg",
+      "page_path": "detail.html?id=7",
+      "gallery": [
+        "images/gundam-7.jpg"
+      ],
+      "features": [
+        "UC系列",
+        "沙扎比 Ver.Ka"
+      ],
+      "detail": ""
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000008",
+      "code": "P-008",
+      "name": "巴巴托高达",
+      "series": "IBO",
+      "grade": "MG",
+      "scale": "1/100",
+      "price_text": "4,500日元",
+      "price_value": 4500,
+      "release_date": "",
+      "image": "images/bbts.jpeg",
+      "page_path": "detail.html?id=8",
+      "gallery": [
+        "images/bbts.jpeg"
+      ],
+      "features": [
+        "铁血孤儿系列",
+        "巴巴托斯"
+      ],
+      "detail": ""
+    }
+  ],
+  "series": [
+    {
+      "id": "00000000-0000-4000-8000-000000001001",
+      "slug": "uc-info",
+      "era": "U.C.纪元",
+      "title": "U.C.纪元",
+      "subtitle": "经典初代高达",
+      "summary": "",
+      "image": "images/uc/preview.jpg",
+      "page_path": "./info/uc-info.html",
+      "sort_order": 1
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001002",
+      "slug": "seed-info",
+      "era": "C.E.纪元",
+      "title": "C.E.纪元",
+      "subtitle": "种系经典",
+      "summary": "",
+      "image": "images/seed.jpg",
+      "page_path": "./info/seed-info.html",
+      "sort_order": 2
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001003",
+      "slug": "ibo-info",
+      "era": "P.D.纪元",
+      "title": "P.D.纪元",
+      "subtitle": "铁血的奥尔芬斯",
+      "summary": "",
+      "image": "images/ibo-2.jpeg",
+      "page_path": "./info/ibo-info.html",
+      "sort_order": 3
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001004",
+      "slug": "oo-info",
+      "era": "A.D.纪元",
+      "title": "A.D.纪元",
+      "subtitle": "00系列",
+      "summary": "",
+      "image": "images/gundam-oo.webp",
+      "page_path": "./info/oo-info.html",
+      "sort_order": 4
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001005",
+      "slug": "mafty-info",
+      "era": "U.C.纪元：闪光的哈萨维",
+      "title": "U.C.纪元：闪光的哈萨维",
+      "subtitle": "人类最后的奇迹之光",
+      "summary": "",
+      "image": "images/hsw.webp",
+      "page_path": "./info/mafty-info.html",
+      "sort_order": 5
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001006",
+      "slug": "gfight-info",
+      "era": "F.C.纪元",
+      "title": "F.C.纪元",
+      "subtitle": "近身格斗肉身拆高达",
+      "summary": "",
+      "image": "images/shin-gundam.jpeg",
+      "page_path": "./info/GFight-info.html",
+      "sort_order": 6
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001007",
+      "slug": "g-info",
+      "era": "R.C.纪元",
+      "title": "R.C.纪元",
+      "subtitle": "富野由悠季强推G复国",
+      "summary": "",
+      "image": "images/gundam-g.jpg",
+      "page_path": "./info/G-info.html",
+      "sort_order": 7
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001008",
+      "slug": "turna-info",
+      "era": "C.C.纪元",
+      "title": "C.C.纪元",
+      "subtitle": "否定黑历史",
+      "summary": "",
+      "image": "images/turn A.png",
+      "page_path": "./info/turnA-info.html",
+      "sort_order": 8
+    }
+  ]
+}

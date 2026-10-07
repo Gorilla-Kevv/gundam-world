@@ -1,0 +1,261 @@
+.studio {
+    max-width: 1100px;
+    margin: 40px auto 60px;
+    padding: 0 20px;
+}
+
+.studio-head h2 {
+    color: #fff;
+    background: linear-gradient(to right, #0800e8, #333);
+    padding: 14px 20px;
+    border-left: 6px solid #ff0000;
+    margin-bottom: 8px;
+}
+
+.studio-head p {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+}
+
+.studio-panel {
+    background: #fff;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-top: 3px solid #ff0000;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.studio-panel h3 {
+    color: #0800e8;
+    margin-bottom: 14px;
+}
+
+.studio-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.studio-row label {
+    font-weight: bold;
+    color: #333;
+}
+
+.studio-row select,
+.studio-panel input,
+.studio-panel textarea {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    background: #fafafa;
+    color: #333;
+}
+
+.studio-hint {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.studio-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px 22px;
+}
+
+.studio-form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.studio-form .field label {
+    font-size: 14px;
+    color: #0800e8;
+}
+
+.studio-form .field input,
+.studio-form .field textarea {
+    width: 100%;
+}
+
+.studio-form .field small {
+    color: #888;
+    font-size: 12px;
+}
+
+.studio-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.studio-status {
+    font-size: 14px;
+    color: #333;
+}
+
+.studio-status.good {
+    color: #0a7d32;
+    font-weight: bold;
+}
+
+.studio-status.bad {
+    color: #cc0000;
+    font-weight: bold;
+}
+
+.submission-list {
+    list-style: none;
+    padding: 0;
+}
+
+.submission-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+    color: #444;
+    font-size: 14px;
+}
+
+.submission-list li.empty {
+    border: none;
+    color: #888;
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 10px;
+    margin-right: 8px;
+    font-size: 12px;
+    color: #fff;
+    background: #5f5e3f;
+}
+
+.badge-pending { background: #c98a00; }
+.badge-approved { background: #0a7d32; }
+.badge-rejected { background: #cc0000; }
+
+.review-card {
+    border: 1px solid #e2e2e2;
+    border-left: 5px solid #0800e8;
+    padding: 16px;
+    margin-bottom: 18px;
+    background: #fcfcfc;
+}
+
+.review-card header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.review-card header b {
+    color: #0800e8;
+    font-size: 17px;
+}
+
+.review-card .meta {
+    color: #777;
+    font-size: 13px;
+}
+
+.review-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px 18px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.review-fields div {
+    display: flex;
+    gap: 6px;
+}
+
+.review-fields span:first-child {
+    color: #888;
+    min-width: 72px;
+}
+
+.review-preview img {
+    max-width: 160px;
+    border: 1px solid #ddd;
+}
+
+.review-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.review-buttons button,
+.studio-tools button {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: #333;
+}
+
+.review-buttons button.approve { background: #0a7d32; }
+.review-buttons button.reject { background: #cc0000; }
+.review-buttons button:disabled,
+.studio-tools button:disabled { background: #aaa; cursor: not-allowed; }
+
+.studio-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.ai-opinion {
+    background: #f3f6ff;
+    border-left: 4px solid #0800e8;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #243055;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+}
+
+.navbar .gw-auth {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: 14px;
+}
+
+.navbar .gw-user {
+    color: #fffb00;
+    font-size: 14px;
+}
+
+.edit-card-btn {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 6px 0;
+    border: 1px dashed #0800e8;
+    background: transparent;
+    color: #0800e8;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.edit-card-btn:hover {
+    background: #0800e8;
+    color: #fff53c;
+}
