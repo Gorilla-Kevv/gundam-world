@@ -90,7 +90,7 @@ async function boot() {
   const editorPanel = document.getElementById('editor-panel');
   document.getElementById('login-link').href = GW.signInHref;
   document.getElementById('identity').textContent = GW.user
-    ? `已登录：${GW.user.name || GW.user.user_id}${GW.isAdmin ? '（管理员）' : ''}`
+    ? `已登录：${GW.user.name || '未命名账号'} · 账号 ID ${GW.user.user_id}${GW.isAdmin ? '（管理员）' : ''}`
     : '当前为访客身份，投稿需要登录。';
   if (!GW.user) {
     loginPanel.hidden = false;
