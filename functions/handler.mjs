@@ -2,6 +2,7 @@
 // the platform injects the verified Qoder identity, and table grants are anonymous
 // because the Function is the only path to the database.
 import { getUser, UserContextError } from './auth.mjs';
+import { createReviewer } from './review.mjs';
 
 const json = (body, status = 200, headers = {}) =>
   Response.json(body, { status, headers: { 'cache-control': 'no-store', ...headers } });
@@ -256,6 +257,34 @@ async function handle({ request, supabase }) {
       }
     }
     return json({ ...out, ok: true });
+  }
+
+  if (action === 'ai-review' && !get) {
+    if (!user) return json({ error: 'login_required' }, 401);
+    if (!admin) return json({ error: 'forbidden' }, 403);
+    const input = await body(request);
+    if (!UUID.test(String(input.id ?? ''))) return json({ error: 'invalid_id' }, 400);
+    const found = await supabase.from('content_submissions')
+      .select('id,kind,action,target_id,payload,author_name,status,created_at').eq('id', input.id).maybeSingle();
+    if (found.error) return json({ error: 'database_request_failed' }, 503);
+    if (!found.data) return json({ error: 'submission_not_found' }, 404);
+    if (found.data.status !== 'pending') return json({ error: 'already_reviewed' }, 409);
+    const reviewer = globalThis.__GW_REVIEWER ?? createReviewer();
+    let verdict;
+    try {
+      verdict = await reviewer.review(found.data);
+    } catch (error) {
+      const known = ['ai_not_configured', 'ai_access_denied', 'ai_rate_limited', 'ai_request_rejected',
+        'ai_response_invalid', 'ai_service_unavailable', 'ai_review_timeout', 'ai_no_model'];
+      const code = error?.code && known.includes(error.code) ? error.code
+        : known.includes(error?.message) ? error.message : 'ai_service_unavailable';
+      return json({ error: code }, 503);
+    }
+    const saved = await supabase.from('content_submissions')
+      .update({ ai_opinion: verdict.opinion, ai_suggestion: verdict.suggestion })
+      .eq('id', input.id).eq('status', 'pending').select('id,ai_opinion,ai_suggestion').maybeSingle();
+    if (saved.error || !saved.data) return json({ error: 'database_request_failed' }, 503);
+    return json({ review: saved.data, ok: true });
   }
 
   return json({ error: 'not_found' }, 404);

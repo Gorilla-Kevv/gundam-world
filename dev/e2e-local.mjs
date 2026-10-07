@@ -56,6 +56,14 @@ check('快照需管理员', guest.status === 403 || guest.status === 401, `snaps
 const snap = await call('snapshot', { fixture: 'admin' });
 check('快照含两类内容', snap.data?.product?.length === 9 && snap.data?.series?.length === 8, `product=${snap.data?.product?.length} series=${snap.data?.series?.length}`);
 
+const second = await call('submit', { fixture: 'A', method: 'POST', body: { kind: 'series', action: 'create', payload: { slug: 'ce71', era: 'C.E.纪元', title: '测试系列条目', subtitle: '投稿测试', sort_order: 9 } } });
+const aiDenied = await call('ai-review', { fixture: 'A', method: 'POST', body: { id: second.data.submission.id } });
+check('非管理员请求 AI 初审被拒 403', aiDenied.status === 403, JSON.stringify(aiDenied.data));
+const ai = await call('ai-review', { fixture: 'admin', method: 'POST', body: { id: second.data.submission.id } });
+check('AI 初审意见落库（本地替身）', ai.data?.review?.ai_suggestion === 'manual' && !!ai.data?.review?.ai_opinion, JSON.stringify(ai.data?.review));
+const shown = await call('submissions', { fixture: 'admin', query: { status: 'pending' } });
+check('队列里能看到初审意见', shown.data?.items?.some((s) => s.id === second.data.submission.id && s.ai_opinion), `pending=${shown.data?.items?.length}`);
+
 const missing = await call('unknown-endpoint');
 check('未知动作返回 404', missing.status === 404, JSON.stringify(missing.data));
 

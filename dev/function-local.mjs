@@ -8,6 +8,8 @@ import { handleSite } from '../functions/handler.mjs';
 const port = Number(process.argv[2] ?? 8000);
 const ADMIN = 'fixture-admin-00000000-0000-4000-8000-0000000000ad';
 globalThis.Deno = { env: { get: (name) => (name === 'ADMIN_USER_IDS' ? ADMIN : '') } };
+// 本地无凭据的 AI 初审替身：只验证应用逻辑，真实上游调用需线上验证。
+globalThis.__GW_REVIEWER = { review: async () => ({ suggestion: 'manual', opinion: '本地样例意见：内容贴题，建议补充发售日期。' }) };
 
 const tables = { series_entries: [], product_entries: [], content_submissions: [] };
 const clone = (row) => structuredClone(row);

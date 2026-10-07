@@ -31,6 +31,7 @@ function cardHtml(item) {
     <div class="review-fields">${fieldRows(item.payload)}</div>
     ${image}
     ${item.status === 'pending' ? `<div class="review-buttons">
+      <button type="button" class="ai">AI 初审</button>
       <button type="button" class="approve">批准并发布</button>
       <button type="button" class="reject">驳回</button>
     </div>` : `<div class="meta">处理人 ${GW.esc(item.reviewed_by ? String(item.reviewed_by).slice(0, 8) : '—')} · ${item.reviewed_at ? new Date(item.reviewed_at).toLocaleString('zh-CN') : ''}</div>`}
@@ -49,14 +50,21 @@ async function loadQueue() {
     queue.querySelectorAll('.review-buttons button').forEach((button) => {
       button.addEventListener('click', async () => {
         const card = button.closest('.review-card');
-        const decision = button.classList.contains('approve') ? 'approve' : 'reject';
+        const decision = button.classList.contains('approve') ? 'approve' : button.classList.contains('reject') ? 'reject' : null;
         button.disabled = true;
         try {
-          await GW.request('review', { method: 'POST', body: { id: card.dataset.id, decision } });
-          await loadQueue();
+          if (decision) {
+            await GW.request('review', { method: 'POST', body: { id: card.dataset.id, decision } });
+            await loadQueue();
+            return;
+          }
+          const { review } = await GW.request('ai-review', { method: 'POST', body: { id: card.dataset.id } });
+          const target = queue.querySelector(`.review-card[data-id="${card.dataset.id}"]`) ?? card;
+          target.insertAdjacentHTML('afterbegin', `<div class="ai-opinion"><b>AI 初审（建议 ${{ approve: '通过', reject: '驳回', manual: '人工判断' }[review.ai_suggestion] ?? review.ai_suggestion}）：</b>${GW.esc(review.ai_opinion)}</div>`);
+          target.querySelector('.review-buttons .ai')?.remove();
         } catch (error) {
           button.disabled = false;
-          button.closest('.review-buttons').insertAdjacentHTML('afterend', `<p class="studio-status bad">${GW.esc(error.message)}</p>`);
+          button.insertAdjacentHTML('afterend', `<span class="studio-status bad">${GW.esc(error.message)}</span>`);
         }
       });
     });
