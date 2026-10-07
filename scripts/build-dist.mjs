@@ -24,9 +24,10 @@ if (existsSync(dist)) {
 mkdirSync(dist, { recursive: true });
 
 const targets = [];
+const SKIP_DIR = /^dist(\.prev.*)?$|^(node_modules|\.git|scripts|functions|dev|content|images|css|js|info)$/;
 const collect = (dir) => {
   for (const name of readdirSync(dir)) {
-    if (['dist', 'node_modules', '.git', 'scripts', 'functions', 'content'].includes(name)) continue;
+    if (SKIP_DIR.test(name)) continue;
     const p = join(dir, name);
     if (statSync(p).isDirectory()) collect(p);
     else if (/\.(html|css|js)$/i.test(name)) targets.push(p);
