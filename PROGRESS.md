@@ -33,15 +33,26 @@
   - Function 上线后 Supabase 运行时不会立刻 ready（曾持续 409 `sites_gateway_supabase_not_ready`），重新 prepare+publish 一个新 release 后恢复
   - 构建脚本曾把 `dist.prev-*` 的副本扫进新包（1240 个 html），已用 `SKIP_DIR` 修正
 
-## 待用户操作（阻塞阶段 2 收尾）
-1. 打开 `https://gundam-world-6tnvyphezee.qoder.zone/editor.html` → 点「Qoder 登录」→ 页面顶部会显示「账号 ID …」，把那串 ID 发我
-2. 在 Qoder 站点设置里新建应用密钥 `ADMIN_USER_IDS`，值填上面那串 ID
-3. 我随后发布声明该密钥的版本，你在 `admin.html` 点「导入仓库种子数据」，公开目录即切到数据库内容
+## 阶段 2B — 站内 AI 管理员审核（代码完成，待发布验证）
+- 用户已确认开启 Qoder 后端并自动创建 PAT：`ensure_backend(["qoder"])` 操作 `01a114e5-1615-73ea-97d4-f88c53e04412` 成功
+- `functions/cloud-agents.mjs`（平台自带客户端）+ 自写 `functions/review.mjs`：固定服务端 Agent/Environment（按 metadata `app=gundamworld,role=content-review` 复用），每次审核新建 Session、发提示词、轮询 events 取回复
+- 模型选择：`GET /api/v1/cloud/models` 取 enabled 列表，可用 `AI_MODEL` 指定，否则按 ID 排序取第一个（创建后 Agent version 固定）
+- 输出契约：回复首行 APPROVE/REJECT/MANUAL → `ai_suggestion`，其余文本 → `ai_opinion`（截断 900 字）
+- `handler.mjs` 增加 `ai-review`（仅管理员、仅 pending）；`admin.js` 每条待审卡片加「AI 初审」按钮，意见就地显示
+- 上游地址 `https://api.qoder.com.cn/` 取自 `get_runtime_context`，写死在服务端；QODER_PAT 只在 Function 内读，不进 secretNames、不进浏览器
+- 本地：`dev/function-local.mjs` 注入无凭据初审替身，`dev/e2e-local.mjs` 18 项全通过（含非管理员 403、意见落库、队列可见）
+- 已知偏差（需如实告知）：未实现平台文档建议的 `coordinator.withLock` 持久化租约；并发首次创建可能残留多余的空闲 Environment 资源，代码按 ID 稳定选一个复用，这些资源不承载数据
+- 真实上游调用尚未验证（需要带管理员身份的浏览器请求），线上发布后跑一次代表性审核
 
-## 阶段 2B — 站内 AI 管理员审核（未开始）
-- 用 `sites-build-agent-app`（`qoder` backend，平台注入 `QODER_PAT`，不进 secretNames）
-- Function 增加 `ai-review` 动作：对单条待审投稿生成意见写入 `content_submissions.ai_opinion/ai_suggestion`，`admin.js` 已预留展示位（`.ai-opinion` 区块）
-- 批准后同步回仓库：`admin.html` 的「导出已批准内容」产出 `approved.json` → 放入仓库 `content/approved.json` → 我提交 git（推送前需你确认）
+## 待用户操作（阻塞收尾）
+1. Qoder 右侧站点预览卡片 → 站点设置 → 密钥（Secrets）→ 新建 `ADMIN_USER_IDS`，值 `01a102f8-1b50-70e7-aa78-f67efac71c65`，等同步成功
+2. 回我一句「填好了」，我发布同时声明该密钥的最终版本（AI 初审 + 管理员一次性上线）
+3. 然后你在 `admin.html` 点「导入仓库种子数据」，公开目录切到数据库内容；再用 `editor.html` 提一条测试投稿，回审核台点「AI 初审」→ 批准，我用「导出已批准内容」的 `approved.json` 回写仓库 `content/approved.json` 并提交 git（推送前再确认）
+
+## 批准后同步回仓库（未开始，等第 3 步）
+- `admin.html` 的「导出已批准内容」→ `approved.json`（含 series/product 全量已发布行）
+- 落地方式：文件放进仓库 `content/approved.json` → 我 `git add/commit`，推送前请你确认
+
 
 ## 关键 ID（复用，勿新建站点）
 - projectRoot `F:\大学文件\大一\web期末大作留档\GundamWorld`，webDirectory `dist`，functionDirectory `functions`
